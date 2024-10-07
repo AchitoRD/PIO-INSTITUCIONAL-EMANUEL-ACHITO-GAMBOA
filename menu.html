@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Menú Principal</h1>
+        <div class="menu" onclick="toggleMenu()">
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+            <div class="menu-icon"></div>
+        </div>
+        <nav id="navMenu" class="nav-hidden">
+            <a href="index.html">Generador de Tablas de Multiplicar</a>
+            <a href="inventarios.html">Sistema de Generación de Inventarios</a>
+            <a href="adivinar.html">Sistema de Adivinar el Número</a>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <button class="btn btn-secondary" onclick="volverAtras()">Volver Atrás</button>
+        <h2>Selecciona una Opción</h2>
+        <ul>
+            <li><a href="index.html">Generador de Tablas de Multiplicar</a></li>
+            <li><a href="inventarios.html">Sistema de Generación de Inventarios</a></li>
+            <li><a href="adivinar.html">Sistema de Adivinar el Número</a></li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById("navMenu");
+            navMenu.classList.toggle("nav-hidden");
+        }
+
+        function volverAtras() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
