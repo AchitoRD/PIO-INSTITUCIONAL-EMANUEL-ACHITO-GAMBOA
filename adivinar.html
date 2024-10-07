@@ -3,22 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adivina el Número</title>
+    <title>Juego de Adivinar Números</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Juego: Adivina el Número</h1>
-    <p>Ingresa un número entre 1 y 100:</p>
-    
-    <input type="number" id="inputNumero" min="1" max="100" />
-    <button onclick="adivinarNumero()">Adivinar</button>
+    <div class="contenedor">
+        <!-- Título con animaciones llamativas -->
+        <h1>🎮Emanuel Achito Gamboa 🎮</h1>
+        <p class="subtitulo">El juego definitivo de adivinar números</p>
 
-    <div id="contador">Intentos: 0</div>
-    
-    <p id="mensaje"></p>
-    
+        <!-- Instrucciones iniciales -->
+        <p>🌟 Ingresa un número entre <strong>1</strong> y <strong>100</strong> y prueba tu suerte 🌟</p>
+        
+        <!-- Entrada de número y botón de acción -->
+        <input type="number" id="inputNumero" min="1" max="100" placeholder="Tu número mágico..." />
+        <button onclick="adivinarNumero()">¡Adivina ahora!</button>
+
+        <!-- Contador de intentos -->
+        <div id="contador">Intentos: 0</div>
+
+        <!-- Espacio para mensajes interactivos -->
+        <p id="mensaje"></p>
+
+        <!-- Espacio para una animación o imagen de victoria (se puede personalizar más) -->
+        <img id="imagenVictoria" src="" alt="" style="display:none; max-width: 250px; margin-top: 20px;">
+    </div>
+
     <script>
-        // Genera un número aleatorio entre 1 y 100
+        // Variables principales
         let numeroSecreto = Math.floor(Math.random() * 100) + 1;
         let intentos = 0;
 
@@ -27,23 +39,45 @@
             let numeroUsuario = document.getElementById("inputNumero").value;
             let mensaje = document.getElementById("mensaje");
             let contador = document.getElementById("contador");
+            let imagenVictoria = document.getElementById("imagenVictoria");
             intentos++;
 
             // Actualiza el contador de intentos
             contador.textContent = `Intentos: ${intentos}`;
 
-            // Comprobaciones del número
+            // Comprueba si el número es correcto
             if (numeroUsuario == numeroSecreto) {
-                mensaje.textContent = `¡Felicidades! Adivinaste el número en ${intentos} intentos.`;
+                mensaje.textContent = `🎉 ¡Increíble Achito! Adivinaste el número secreto en ${intentos} intentos. ¡Eres un crack! 🎉`;
                 mensaje.className = "correcto";
+                // Muestra una imagen o animación de victoria
+                imagenVictoria.src = "https://media.giphy.com/media/l0ExncehJzexFpRHq/giphy.gif";
+                imagenVictoria.style.display = "block";
+                // Reinicia el juego después de un tiempo
+                setTimeout(() => {
+                    reiniciarJuego();
+                }, 5000);
             } else if (numeroUsuario > numeroSecreto) {
-                mensaje.textContent = "El número es menor. ¡Sigue intentando!";
+                mensaje.textContent = "👇 El número es menor. ¡Inténtalo de nuevo, Achito";
                 mensaje.className = "incorrecto";
+                imagenVictoria.style.display = "none"; // Oculta la imagen de victoria si hubo errores
             } else if (numeroUsuario < numeroSecreto) {
-                mensaje.textContent = "El número es mayor. ¡Sigue intentando!";
+                mensaje.textContent = "👆 El número es mayor. ¡Inténtalo de nuevo, Achito!";
                 mensaje.className = "incorrecto";
+                imagenVictoria.style.display = "none"; // Oculta la imagen de victoria si hubo errores
             }
+        }
+
+        // Función para reiniciar el juego después de acertar
+        function reiniciarJuego() {
+            numeroSecreto = Math.floor(Math.random() * 100) + 1;
+            intentos = 0;
+            document.getElementById("inputNumero").value = '';
+            document.getElementById("contador").textContent = "Intentos: 0";
+            document.getElementById("mensaje").textContent = "🔄 ¡Nuevo juego iniciado! Prueba tu suerte de nuevo.";
+            document.getElementById("mensaje").className = "";
+            document.getElementById("imagenVictoria").style.display = "none";
         }
     </script>
 </body>
 </html>
+
