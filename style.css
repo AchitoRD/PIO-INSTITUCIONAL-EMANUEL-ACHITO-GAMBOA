@@ -1,0 +1,84 @@
+/* Estilos generales */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to bottom right, #0077b6, #00b4d8);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+input {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+button {
+    background-color: #023e8a;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0077b6;
+    transform: scale(1.1);
+}
+
+#mensaje {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#contador {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    background-color: #0096c7;
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px;
+    display: inline-block;
+}
+
+.correcto {
+    color: #90ee90;
+    animation: ganar 1s ease-in-out infinite;
+}
+
+.incorrecto {
+    color: #ff6f61;
+}
+
+@keyframes ganar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
